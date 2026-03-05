@@ -55,11 +55,138 @@
                             <span class="hero__button-icon">→</span>
                         </a>
                     </div>
-                </div>
-                <div class="hero__visual">
-                    <div class="hero__visual-image">
-                        <!-- Placeholder for hero image -->
+                    <div class="hero__platforms">
+                        <span class="hero__platform-label">対応AI:</span>
+                        <span class="hero__platform-badge">ChatGPT</span>
+                        <span class="hero__platform-badge">Perplexity</span>
+                        <span class="hero__platform-badge">Google AI</span>
+                        <span class="hero__platform-badge">Gemini</span>
                     </div>
+                </div>
+
+                <!-- AI Network SVG Animation -->
+                <div class="hero__visual">
+                    <svg class="hero__visual-svg" viewBox="0 0 520 440" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AIネットワーク図">
+                        <defs>
+                            <pattern id="hexGrid" width="52" height="45" patternUnits="userSpaceOnUse">
+                                <path d="M26 0 L52 13 L52 39 L26 52 L0 39 L0 13 Z" fill="none" stroke="rgba(47,127,255,0.07)" stroke-width="1"/>
+                            </pattern>
+                            <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#2F7EFF" stop-opacity="0.22"/>
+                                <stop offset="100%" stop-color="#2F7EFF" stop-opacity="0"/>
+                            </radialGradient>
+                            <radialGradient id="bgGrad" cx="40%" cy="40%" r="70%">
+                                <stop offset="0%" stop-color="#0F2756"/>
+                                <stop offset="100%" stop-color="#071228"/>
+                            </radialGradient>
+                            <filter id="glow1">
+                                <feGaussianBlur stdDeviation="3" result="b"/>
+                                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                            </filter>
+                            <filter id="glow2">
+                                <feGaussianBlur stdDeviation="8" result="b"/>
+                                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                            </filter>
+                            <!-- Particle motion paths -->
+                            <path id="mv1" d="M 92 88 C 175 148 215 188 260 218"/>
+                            <path id="mv2" d="M 428 88 C 345 148 305 188 260 218"/>
+                            <path id="mv3" d="M 82 352 C 168 294 215 256 260 218"/>
+                            <path id="mv4" d="M 438 352 C 352 294 305 256 260 218"/>
+                        </defs>
+
+                        <!-- Background -->
+                        <rect width="520" height="440" rx="18" fill="url(#bgGrad)"/>
+                        <rect width="520" height="440" rx="18" fill="url(#hexGrid)"/>
+
+                        <!-- Center ambient glow -->
+                        <circle cx="260" cy="218" r="140" fill="url(#centerGlow)"/>
+
+                        <!-- Connection lines (animated dashes, flowing inward) -->
+                        <path d="M 92 88 C 175 148 215 188 260 218" stroke="#2F7EFF" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.45">
+                            <animate attributeName="stroke-dashoffset" values="24;0" dur="2s" repeatCount="indefinite"/>
+                        </path>
+                        <path d="M 428 88 C 345 148 305 188 260 218" stroke="#2F7EFF" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.45">
+                            <animate attributeName="stroke-dashoffset" values="24;0" dur="1.7s" repeatCount="indefinite"/>
+                        </path>
+                        <path d="M 82 352 C 168 294 215 256 260 218" stroke="#2F7EFF" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.45">
+                            <animate attributeName="stroke-dashoffset" values="24;0" dur="2.3s" repeatCount="indefinite"/>
+                        </path>
+                        <path d="M 438 352 C 352 294 305 256 260 218" stroke="#2F7EFF" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.45">
+                            <animate attributeName="stroke-dashoffset" values="24;0" dur="1.9s" repeatCount="indefinite"/>
+                        </path>
+
+                        <!-- Traveling particles -->
+                        <circle r="3.5" fill="#00C4FF" filter="url(#glow1)">
+                            <animateMotion dur="2s" repeatCount="indefinite"><mpath href="#mv1"/></animateMotion>
+                        </circle>
+                        <circle r="3" fill="#5B9CF5" filter="url(#glow1)">
+                            <animateMotion dur="2.4s" repeatCount="indefinite" begin="0.5s"><mpath href="#mv2"/></animateMotion>
+                        </circle>
+                        <circle r="3.5" fill="#2F7EFF" filter="url(#glow1)">
+                            <animateMotion dur="1.85s" repeatCount="indefinite" begin="1s"><mpath href="#mv3"/></animateMotion>
+                        </circle>
+                        <circle r="3" fill="#00C4FF" filter="url(#glow1)">
+                            <animateMotion dur="2.6s" repeatCount="indefinite" begin="0.3s"><mpath href="#mv4"/></animateMotion>
+                        </circle>
+
+                        <!-- Center Node: AIEO Hub -->
+                        <!-- Pulse rings -->
+                        <circle cx="260" cy="218" r="62" fill="none" stroke="#2F7EFF" stroke-width="1">
+                            <animate attributeName="r" values="62;96;62" dur="3.2s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" values="0.55;0;0.55" dur="3.2s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="260" cy="218" r="62" fill="none" stroke="#2F7EFF" stroke-width="1">
+                            <animate attributeName="r" values="62;78;62" dur="3.2s" begin="0.9s" repeatCount="indefinite"/>
+                            <animate attributeName="opacity" values="0.35;0;0.35" dur="3.2s" begin="0.9s" repeatCount="indefinite"/>
+                        </circle>
+                        <!-- Main circle -->
+                        <circle cx="260" cy="218" r="60" fill="#0D2150" filter="url(#glow2)"/>
+                        <circle cx="260" cy="218" r="60" fill="none" stroke="#2F7EFF" stroke-width="2"/>
+                        <!-- Inner dashed ring -->
+                        <circle cx="260" cy="218" r="48" fill="none" stroke="rgba(47,127,255,0.22)" stroke-width="1" stroke-dasharray="3 4"/>
+                        <!-- Labels -->
+                        <text x="260" y="207" text-anchor="middle" fill="#2F7EFF" font-size="14" font-weight="700" font-family="system-ui,sans-serif" letter-spacing="2">AIEO</text>
+                        <text x="260" y="228" text-anchor="middle" fill="rgba(255,255,255,0.88)" font-size="10" font-family="system-ui,sans-serif">貴社サイト</text>
+
+                        <!-- Outer Nodes -->
+                        <!-- ChatGPT top-left -->
+                        <circle cx="92" cy="88" r="42" fill="#0A1E48"/>
+                        <circle cx="92" cy="88" r="42" fill="none" stroke="#2F7EFF" stroke-width="1.5" opacity="0.8"/>
+                        <text x="92" y="82" text-anchor="middle" fill="rgba(255,255,255,0.92)" font-size="10" font-weight="700" font-family="system-ui,sans-serif">Chat</text>
+                        <text x="92" y="97" text-anchor="middle" fill="#5B9CF5" font-size="10" font-family="system-ui,sans-serif">GPT</text>
+
+                        <!-- Perplexity top-right -->
+                        <circle cx="428" cy="88" r="42" fill="#0A1E48"/>
+                        <circle cx="428" cy="88" r="42" fill="none" stroke="#2F7EFF" stroke-width="1.5" opacity="0.8"/>
+                        <text x="428" y="82" text-anchor="middle" fill="rgba(255,255,255,0.92)" font-size="9" font-weight="700" font-family="system-ui,sans-serif">Per-</text>
+                        <text x="428" y="97" text-anchor="middle" fill="#5B9CF5" font-size="9" font-family="system-ui,sans-serif">plexity</text>
+
+                        <!-- Google AI bottom-left -->
+                        <circle cx="82" cy="352" r="42" fill="#0A1E48"/>
+                        <circle cx="82" cy="352" r="42" fill="none" stroke="#2F7EFF" stroke-width="1.5" opacity="0.8"/>
+                        <text x="82" y="346" text-anchor="middle" fill="rgba(255,255,255,0.92)" font-size="9" font-weight="700" font-family="system-ui,sans-serif">Google</text>
+                        <text x="82" y="361" text-anchor="middle" fill="#5B9CF5" font-size="9" font-family="system-ui,sans-serif">AI</text>
+
+                        <!-- Gemini bottom-right -->
+                        <circle cx="438" cy="352" r="42" fill="#0A1E48"/>
+                        <circle cx="438" cy="352" r="42" fill="none" stroke="#2F7EFF" stroke-width="1.5" opacity="0.8"/>
+                        <text x="438" y="346" text-anchor="middle" fill="rgba(255,255,255,0.92)" font-size="9" font-weight="700" font-family="system-ui,sans-serif">Gemini</text>
+                        <text x="438" y="361" text-anchor="middle" fill="#5B9CF5" font-size="9" font-family="system-ui,sans-serif">/ Copilot</text>
+
+                        <!-- Pulsing dots on outer nodes -->
+                        <circle cx="92" cy="88" r="4" fill="#2F7EFF" opacity="0.9">
+                            <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="428" cy="88" r="4" fill="#2F7EFF" opacity="0.9">
+                            <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2.4s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="82" cy="352" r="4" fill="#2F7EFF" opacity="0.9">
+                            <animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.8s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="438" cy="352" r="4" fill="#2F7EFF" opacity="0.9">
+                            <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2.2s" repeatCount="indefinite"/>
+                        </circle>
+                    </svg>
                 </div>
             </div>
         </section>
@@ -69,7 +196,7 @@
             <div class="section__container">
                 <div class="section__header">
                     <div class="section__label">
-                        <span class="section__label-icon">⚠️</span>
+                        <span class="section__label-icon">⚠</span>
                         <span class="section__label-text">Problem & Risk</span>
                     </div>
                     <h2 class="section__title">
@@ -82,24 +209,98 @@
                     <!-- Problem 1 -->
                     <div class="problem-item">
                         <div class="problem-item__content">
-                            <div class="problem-item__icon">📉</div>
+                            <div class="problem-item__icon">
+                                <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                            </div>
                             <h3 class="problem-item__title">クリック率 32% 低下</h3>
                             <p class="problem-item__text">
                                 オーガニック検索1位でも、AIの回答（SGE/AI Overview）が最上部に表示されるため、クリック率が大幅に低下しています。
                             </p>
                         </div>
                         <div class="problem-item__visual">
-                            <!-- Chart placeholder -->
+                            <!-- Bar Chart: CTR Decline -->
+                            <svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
+                                <!-- BG -->
+                                <rect width="380" height="260" fill="white"/>
+                                <!-- Title -->
+                                <text x="190" y="24" text-anchor="middle" fill="#0B1B3E" font-size="12" font-weight="700" font-family="system-ui,sans-serif">検索1位 クリック率の推移</text>
+                                <!-- Grid lines -->
+                                <line x1="56" y1="48" x2="360" y2="48" stroke="#E2E8F4" stroke-width="1"/>
+                                <line x1="56" y1="93" x2="360" y2="93" stroke="#E2E8F4" stroke-width="1"/>
+                                <line x1="56" y1="138" x2="360" y2="138" stroke="#E2E8F4" stroke-width="1"/>
+                                <line x1="56" y1="183" x2="360" y2="183" stroke="#E2E8F4" stroke-width="1"/>
+                                <line x1="56" y1="228" x2="360" y2="228" stroke="#E2E8F4" stroke-width="1"/>
+                                <!-- Y labels -->
+                                <text x="48" y="52" text-anchor="end" fill="#8A9AB8" font-size="9" font-family="system-ui">32%</text>
+                                <text x="48" y="97" text-anchor="end" fill="#8A9AB8" font-size="9" font-family="system-ui">24%</text>
+                                <text x="48" y="142" text-anchor="end" fill="#8A9AB8" font-size="9" font-family="system-ui">16%</text>
+                                <text x="48" y="187" text-anchor="end" fill="#8A9AB8" font-size="9" font-family="system-ui">8%</text>
+                                <text x="48" y="232" text-anchor="end" fill="#8A9AB8" font-size="9" font-family="system-ui">0%</text>
+                                <!-- Bars: 32%→28%→24%→20%→12% = heights 180,157.5,135,112.5,67.5 from y=228 -->
+                                <!-- 2020: 32% -->
+                                <rect x="72" y="48" width="44" height="180" rx="4" fill="#0B1B3E" opacity="0.75"/>
+                                <text x="94" y="42" text-anchor="middle" fill="#4A5C7A" font-size="9" font-family="system-ui">32%</text>
+                                <!-- 2021: 28% -->
+                                <rect x="131" y="70" width="44" height="158" rx="4" fill="#0B1B3E" opacity="0.75"/>
+                                <text x="153" y="64" text-anchor="middle" fill="#4A5C7A" font-size="9" font-family="system-ui">28%</text>
+                                <!-- 2022: 24% -->
+                                <rect x="190" y="93" width="44" height="135" rx="4" fill="#0F2756" opacity="0.75"/>
+                                <text x="212" y="87" text-anchor="middle" fill="#4A5C7A" font-size="9" font-family="system-ui">24%</text>
+                                <!-- 2023: 20% -->
+                                <rect x="249" y="115" width="44" height="113" rx="4" fill="#1A4A8A" opacity="0.75"/>
+                                <text x="271" y="109" text-anchor="middle" fill="#4A5C7A" font-size="9" font-family="system-ui">20%</text>
+                                <!-- 2024 AI era: 12% (red) -->
+                                <rect x="308" y="160" width="44" height="68" rx="4" fill="#EF4444"/>
+                                <text x="330" y="154" text-anchor="middle" fill="#EF4444" font-size="9" font-weight="700" font-family="system-ui">▼32%</text>
+                                <!-- X axis -->
+                                <line x1="56" y1="228" x2="360" y2="228" stroke="#E2E8F4" stroke-width="1"/>
+                                <!-- X labels -->
+                                <text x="94" y="242" text-anchor="middle" fill="#8A9AB8" font-size="9" font-family="system-ui">2020</text>
+                                <text x="153" y="242" text-anchor="middle" fill="#8A9AB8" font-size="9" font-family="system-ui">2021</text>
+                                <text x="212" y="242" text-anchor="middle" fill="#8A9AB8" font-size="9" font-family="system-ui">2022</text>
+                                <text x="271" y="242" text-anchor="middle" fill="#8A9AB8" font-size="9" font-family="system-ui">2023</text>
+                                <text x="330" y="242" text-anchor="middle" fill="#EF4444" font-size="9" font-weight="700" font-family="system-ui">AI時代</text>
+                            </svg>
                         </div>
                     </div>
 
                     <!-- Problem 2 -->
                     <div class="problem-item problem-item--reverse">
                         <div class="problem-item__visual">
-                            <!-- Chart placeholder -->
+                            <!-- Zero-click comparison chart -->
+                            <svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="380" height="260" fill="white"/>
+                                <text x="190" y="24" text-anchor="middle" fill="#0B1B3E" font-size="12" font-weight="700" font-family="system-ui,sans-serif">ゼロクリック検索の割合</text>
+                                <!-- Legend -->
+                                <rect x="60" y="36" width="10" height="10" rx="2" fill="#0B1B3E" opacity="0.7"/>
+                                <text x="74" y="45" fill="#4A5C7A" font-size="9" font-family="system-ui">クリックあり</text>
+                                <rect x="155" y="36" width="10" height="10" rx="2" fill="#EF4444"/>
+                                <text x="169" y="45" fill="#4A5C7A" font-size="9" font-family="system-ui">ゼロクリック（AI回答で完結）</text>
+                                <!-- 2020 bar -->
+                                <text x="80" y="75" text-anchor="middle" fill="#4A5C7A" font-size="10" font-weight="700" font-family="system-ui">2020年</text>
+                                <!-- Click: 60% of 280px = 168px -->
+                                <rect x="120" y="62" width="168" height="28" rx="0" fill="#0B1B3E" opacity="0.75"/>
+                                <text x="204" y="81" text-anchor="middle" fill="white" font-size="9" font-weight="700" font-family="system-ui">60%</text>
+                                <!-- Zero-click: 40% = 112px -->
+                                <rect x="288" y="62" width="52" height="28" rx="0" fill="#EF4444" opacity="0.8"/>
+                                <text x="314" y="81" text-anchor="middle" fill="white" font-size="9" font-weight="700" font-family="system-ui">40%</text>
+                                <!-- 2024 bar -->
+                                <text x="80" y="130" text-anchor="middle" fill="#4A5C7A" font-size="10" font-weight="700" font-family="system-ui">2024年</text>
+                                <!-- Click: 35% of 280px = 98px -->
+                                <rect x="120" y="117" width="98" height="28" rx="0" fill="#0B1B3E" opacity="0.55"/>
+                                <text x="169" y="136" text-anchor="middle" fill="white" font-size="9" font-weight="700" font-family="system-ui">35%</text>
+                                <!-- Zero-click: 65% = 182px -->
+                                <rect x="218" y="117" width="122" height="28" rx="0" fill="#EF4444"/>
+                                <text x="279" y="136" text-anchor="middle" fill="white" font-size="9" font-weight="700" font-family="system-ui">65%</text>
+                                <!-- Arrow and annotation -->
+                                <text x="190" y="175" text-anchor="middle" fill="#EF4444" font-size="11" font-weight="700" font-family="system-ui">ゼロクリックが 40% → 65% に急増</text>
+                                <text x="190" y="195" text-anchor="middle" fill="#8A9AB8" font-size="9" font-family="system-ui">ユーザーはAIの要約だけで満足し、サイトを訪問しなくなっています</text>
+                            </svg>
                         </div>
                         <div class="problem-item__content">
-                            <div class="problem-item__icon">🔍</div>
+                            <div class="problem-item__icon">
+                                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                            </div>
                             <h3 class="problem-item__title">ゼロクリック検索の増加</h3>
                             <p class="problem-item__text">
                                 ユーザーは検索結果をクリックせず、AIの要約を読むだけで満足してしまいます。サイトへの流入そのものが減少しています。
@@ -110,14 +311,48 @@
                     <!-- Problem 3 -->
                     <div class="problem-item">
                         <div class="problem-item__content">
-                            <div class="problem-item__icon">⚠️</div>
+                            <div class="problem-item__icon">
+                                <svg viewBox="0 0 24 24"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                            </div>
                             <h3 class="problem-item__title">AIに無視されるリスク</h3>
                             <p class="problem-item__text">
                                 AIの学習ソース（引用元）に採用されなければ、貴社の情報はデジタル空間で「存在しない」のと同じ扱いになります。
                             </p>
                         </div>
                         <div class="problem-item__visual">
-                            <!-- Chart placeholder -->
+                            <!-- Network exclusion diagram -->
+                            <svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="380" height="260" fill="white"/>
+                                <text x="190" y="24" text-anchor="middle" fill="#0B1B3E" font-size="12" font-weight="700" font-family="system-ui,sans-serif">AIの引用ネットワーク</text>
+                                <!-- Center AI node -->
+                                <circle cx="190" cy="130" r="40" fill="#0B1B3E" opacity="0.9"/>
+                                <text x="190" y="125" text-anchor="middle" fill="white" font-size="12" font-weight="700" font-family="system-ui,sans-serif">AI</text>
+                                <text x="190" y="142" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="8" font-family="system-ui,sans-serif">回答エンジン</text>
+                                <!-- Competitor A (top-left) - connected -->
+                                <line x1="155" y1="105" x2="90" y2="65" stroke="#10B981" stroke-width="2"/>
+                                <circle cx="72" cy="52" r="28" fill="#ECFDF5" stroke="#10B981" stroke-width="1.5"/>
+                                <text x="72" y="48" text-anchor="middle" fill="#065F46" font-size="9" font-weight="700" font-family="system-ui,sans-serif">競合</text>
+                                <text x="72" y="61" text-anchor="middle" fill="#065F46" font-size="9" font-family="system-ui,sans-serif">サイトA</text>
+                                <circle cx="118" cy="82" r="6" fill="#10B981"/>
+                                <text x="118" y="86" text-anchor="middle" fill="#10B981" font-size="8" font-family="system-ui,sans-serif">✓</text>
+                                <!-- Competitor B (top-right) - connected -->
+                                <line x1="225" y1="105" x2="296" y2="65" stroke="#10B981" stroke-width="2"/>
+                                <circle cx="314" cy="52" r="28" fill="#ECFDF5" stroke="#10B981" stroke-width="1.5"/>
+                                <text x="314" y="48" text-anchor="middle" fill="#065F46" font-size="9" font-weight="700" font-family="system-ui,sans-serif">競合</text>
+                                <text x="314" y="61" text-anchor="middle" fill="#065F46" font-size="9" font-family="system-ui,sans-serif">サイトB</text>
+                                <circle cx="268" cy="82" r="6" fill="#10B981"/>
+                                <text x="268" y="86" text-anchor="middle" fill="#10B981" font-size="8" font-family="system-ui,sans-serif">✓</text>
+                                <!-- Your site (bottom) - NOT connected -->
+                                <line x1="190" y1="170" x2="190" y2="202" stroke="#EF4444" stroke-width="2" stroke-dasharray="5 4"/>
+                                <circle cx="190" cy="224" r="28" fill="#FEF2F2" stroke="#EF4444" stroke-width="1.5"/>
+                                <text x="190" y="219" text-anchor="middle" fill="#991B1B" font-size="9" font-weight="700" font-family="system-ui,sans-serif">貴社</text>
+                                <text x="190" y="232" text-anchor="middle" fill="#991B1B" font-size="9" font-family="system-ui,sans-serif">サイト</text>
+                                <!-- X mark -->
+                                <text x="203" y="192" fill="#EF4444" font-size="14" font-weight="700" font-family="system-ui,sans-serif">✕</text>
+                                <!-- Badge -->
+                                <rect x="115" y="175" width="62" height="18" rx="9" fill="#FEE2E2"/>
+                                <text x="146" y="187" text-anchor="middle" fill="#EF4444" font-size="8" font-weight="700" font-family="system-ui,sans-serif">引用されない</text>
+                            </svg>
                         </div>
                     </div>
                 </div>
@@ -125,7 +360,7 @@
         </section>
 
         <!-- Why Section -->
-        <section id="why" class="section section--why">
+        <section id="about" class="section section--why">
             <div class="section__container">
                 <div class="section__header section__header--center">
                     <div class="section__label section__label--center">
@@ -147,61 +382,41 @@
                     <table class="comparison__table">
                         <thead class="comparison__header">
                             <tr>
-                                <th></th>
-                                <th class="comparison__column comparison__column--seo">
-                                    <span class="comparison__icon">🔍</span>
-                                    <span class="comparison__label">従来SEO</span>
+                                <th style="background:#F4F7FC; width:30%;"></th>
+                                <th>
+                                    <div class="comparison__column comparison__column--seo">
+                                        <span class="comparison__icon">🔍</span>
+                                        <span class="comparison__label">従来SEO</span>
+                                    </div>
                                 </th>
-                                <th class="comparison__column comparison__column--aieo">
-                                    <span class="comparison__icon">🤖</span>
-                                    <span class="comparison__label">AIEO</span>
+                                <th>
+                                    <div class="comparison__column comparison__column--aieo">
+                                        <span style="font-size:24px;">🤖</span>
+                                        <span class="comparison__label">AIEO</span>
+                                    </div>
                                 </th>
                             </tr>
                         </thead>
                         <tbody class="comparison__body">
                             <tr class="comparison__row">
                                 <td class="comparison__label-cell">評価主体</td>
-                                <td class="comparison__cell">
-                                    <span class="comparison__check">✓</span>
-                                    検索エンジンのアルゴリズム
-                                </td>
-                                <td class="comparison__cell">
-                                    <span class="comparison__check">✓</span>
-                                    AI（ChatGPT, Perplexity等）
-                                </td>
+                                <td class="comparison__cell">検索エンジンのアルゴリズム</td>
+                                <td class="comparison__cell comparison__cell--aieo"><span class="comparison__check">✓</span>AI（ChatGPT, Perplexity等）</td>
                             </tr>
                             <tr class="comparison__row">
                                 <td class="comparison__label-cell">最適化の焦点</td>
-                                <td class="comparison__cell">
-                                    <span class="comparison__check">✓</span>
-                                    キーワード・被リンク
-                                </td>
-                                <td class="comparison__cell">
-                                    <span class="comparison__check">✓</span>
-                                    E-E-A-T基準・情報の質
-                                </td>
+                                <td class="comparison__cell">キーワード・被リンク</td>
+                                <td class="comparison__cell comparison__cell--aieo"><span class="comparison__check">✓</span>E-E-A-T基準・情報の質</td>
                             </tr>
                             <tr class="comparison__row">
                                 <td class="comparison__label-cell">成果の出方</td>
-                                <td class="comparison__cell">
-                                    <span class="comparison__check">✓</span>
-                                    検索順位・クリック率
-                                </td>
-                                <td class="comparison__cell">
-                                    <span class="comparison__check">✓</span>
-                                    AIによる推薦・引用回数
-                                </td>
+                                <td class="comparison__cell">検索順位・クリック率</td>
+                                <td class="comparison__cell comparison__cell--aieo"><span class="comparison__check">✓</span>AIによる推薦・引用回数</td>
                             </tr>
                             <tr class="comparison__row">
                                 <td class="comparison__label-cell">施策の性質</td>
-                                <td class="comparison__cell">
-                                    <span class="comparison__check">✓</span>
-                                    テクニカル寄り
-                                </td>
-                                <td class="comparison__cell">
-                                    <span class="comparison__check">✓</span>
-                                    コンテンツ品質寄り
-                                </td>
+                                <td class="comparison__cell">テクニカル寄り</td>
+                                <td class="comparison__cell comparison__cell--aieo"><span class="comparison__check">✓</span>コンテンツ品質寄り</td>
                             </tr>
                         </tbody>
                     </table>
@@ -253,7 +468,6 @@
                         <span class="section__cta-arrows">
                             <span>↓</span>
                             <span>↓</span>
-                            <span>↓</span>
                         </span>
                     </a>
                 </div>
@@ -276,30 +490,42 @@
                 </div>
 
                 <div class="eeat-grid">
+                    <!-- Experience -->
                     <div class="eeat-card">
                         <div class="eeat-card__number">01</div>
-                        <div class="eeat-card__icon">📝</div>
+                        <div class="eeat-card__icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                        </div>
                         <h3 class="eeat-card__title">経験 (Experience)</h3>
                         <p class="eeat-card__text">実際に製品を使った、サービスを体験したという一次情報。</p>
                     </div>
 
+                    <!-- Expertise -->
                     <div class="eeat-card">
                         <div class="eeat-card__number">02</div>
-                        <div class="eeat-card__icon">🎓</div>
+                        <div class="eeat-card__icon">
+                            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        </div>
                         <h3 class="eeat-card__title">専門性 (Expertise)</h3>
                         <p class="eeat-card__text">その道のプロであるという客観的な知識・スキル。</p>
                     </div>
 
+                    <!-- Authoritativeness -->
                     <div class="eeat-card">
                         <div class="eeat-card__number">03</div>
-                        <div class="eeat-card__icon">👑</div>
+                        <div class="eeat-card__icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+                        </div>
                         <h3 class="eeat-card__title">権威性 (Authoritativeness)</h3>
                         <p class="eeat-card__text">第三者から「あの会社は信頼できる」と認められていること。</p>
                     </div>
 
+                    <!-- Trust -->
                     <div class="eeat-card">
                         <div class="eeat-card__number">04</div>
-                        <div class="eeat-card__icon">🔒</div>
+                        <div class="eeat-card__icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                        </div>
                         <h3 class="eeat-card__title">信頼性 (Trust)</h3>
                         <p class="eeat-card__text">サイトが安全で、運営元情報が明確であること。</p>
                     </div>
@@ -318,17 +544,23 @@
 
                 <div class="ideal-grid">
                     <div class="ideal-card">
-                        <div class="ideal-card__icon">🏢</div>
+                        <div class="ideal-card__icon">
+                            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        </div>
                         <h3 class="ideal-card__title">BtoB SaaS企業</h3>
                         <p class="ideal-card__text">意思決定者がAI検索で比較検討を行う際、最初に推薦される企業に。</p>
                     </div>
                     <div class="ideal-card">
-                        <div class="ideal-card__icon">⚡</div>
+                        <div class="ideal-card__icon">
+                            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        </div>
                         <h3 class="ideal-card__title">技術系サービス企業</h3>
                         <p class="ideal-card__text">専門性の高い情報を求めるユーザーがAIで検索する領域で優位性を確保。</p>
                     </div>
                     <div class="ideal-card">
-                        <div class="ideal-card__icon">💡</div>
+                        <div class="ideal-card__icon">
+                            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </div>
                         <h3 class="ideal-card__title">コンサルティング企業</h3>
                         <p class="ideal-card__text">AIがソリューション提案時に自社を第一候補として提示してくれる状態へ。</p>
                     </div>
@@ -353,19 +585,19 @@
                         </div>
                         <ul class="beforeafter__list">
                             <li class="beforeafter__item beforeafter__item--negative">
-                                <span class="beforeafter__icon">❌</span>
+                                <span class="beforeafter__icon">✕</span>
                                 <span class="beforeafter__text">AI検索では自社が表示されない</span>
                             </li>
                             <li class="beforeafter__item beforeafter__item--negative">
-                                <span class="beforeafter__icon">❌</span>
+                                <span class="beforeafter__icon">✕</span>
                                 <span class="beforeafter__text">競合が推薦され、機会損失が発生</span>
                             </li>
                             <li class="beforeafter__item beforeafter__item--negative">
-                                <span class="beforeafter__icon">❌</span>
+                                <span class="beforeafter__icon">✕</span>
                                 <span class="beforeafter__text">検索順位は高いがクリック率が低下</span>
                             </li>
                             <li class="beforeafter__item beforeafter__item--negative">
-                                <span class="beforeafter__icon">❌</span>
+                                <span class="beforeafter__icon">✕</span>
                                 <span class="beforeafter__text">AI時代の顧客接点を失う</span>
                             </li>
                         </ul>
@@ -380,19 +612,19 @@
                         </div>
                         <ul class="beforeafter__list">
                             <li class="beforeafter__item beforeafter__item--positive">
-                                <span class="beforeafter__icon">✅</span>
+                                <span class="beforeafter__icon">✓</span>
                                 <span class="beforeafter__text">ChatGPT等でも自社が推薦される</span>
                             </li>
                             <li class="beforeafter__item beforeafter__item--positive">
-                                <span class="beforeafter__icon">✅</span>
+                                <span class="beforeafter__icon">✓</span>
                                 <span class="beforeafter__text">AI検索からの新規流入が増加</span>
                             </li>
                             <li class="beforeafter__item beforeafter__item--positive">
-                                <span class="beforeafter__icon">✅</span>
+                                <span class="beforeafter__icon">✓</span>
                                 <span class="beforeafter__text">E-E-A-Tが強化され、SEOにも好影響</span>
                             </li>
                             <li class="beforeafter__item beforeafter__item--positive">
-                                <span class="beforeafter__icon">✅</span>
+                                <span class="beforeafter__icon">✓</span>
                                 <span class="beforeafter__text">先行優位性を確保できる</span>
                             </li>
                         </ul>
@@ -418,14 +650,14 @@
                     </div>
 
                     <div class="whynow-stat">
-                        <div class="whynow-stat__number">2025年</div>
-                        <p class="whynow-stat__text">までにGoogle検索の25%がAI検索に移行すると予測</p>
+                        <div class="whynow-stat__number">25%</div>
+                        <p class="whynow-stat__text">Google検索のうちAI検索への移行が2025年までに予測</p>
                         <p class="whynow-stat__source">※Forrester Research (2024)</p>
                     </div>
 
                     <div class="whynow-stat">
-                        <div class="whynow-stat__number">先行者利益</div>
-                        <p class="whynow-stat__text">今対策すれば、競合に対して2〜3年の優位性を確保できる</p>
+                        <div class="whynow-stat__number">2〜3年</div>
+                        <p class="whynow-stat__text">今対策すれば確保できる競合に対する先行者優位性</p>
                         <p class="whynow-stat__source">※LIDDELL分析</p>
                     </div>
                 </div>
@@ -451,16 +683,25 @@
                 <div class="strength-grid">
                     <div class="strength-card">
                         <div class="strength-card__number">01</div>
+                        <div class="strength-card__icon">
+                            <svg viewBox="0 0 24 24"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44l-1.46-8.69A2.5 2.5 0 0 1 8 7.5V4.5A2.5 2.5 0 0 1 9.5 2z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44l1.46-8.69A2.5 2.5 0 0 0 16 7.5V4.5A2.5 2.5 0 0 0 14.5 2z"/></svg>
+                        </div>
                         <h3 class="strength-card__title">AI・SEO両方の深い知見</h3>
                         <p class="strength-card__text">創業以来、SEO・コンテンツマーケティングの領域で多数の実績を持つLIDDELL。AI時代の新しいマーケティング手法を研究し、AIEO対策のパイオニアとして支援を開始しました。</p>
                     </div>
                     <div class="strength-card">
                         <div class="strength-card__number">02</div>
+                        <div class="strength-card__icon">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                        </div>
                         <h3 class="strength-card__title">実証済みのフレームワーク</h3>
                         <p class="strength-card__text">独自に開発した「AIEO診断フレームワーク」により、現状のAI検索での立ち位置を可視化。改善施策の優先順位を明確化し、最短距離で成果を出します。</p>
                     </div>
                     <div class="strength-card">
                         <div class="strength-card__number">03</div>
+                        <div class="strength-card__icon">
+                            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
                         <h3 class="strength-card__title">伴走型の支援体制</h3>
                         <p class="strength-card__text">診断して終わりではなく、改善施策の実行、効果測定、PDCAサイクルまで一気通貫でサポート。貴社の成功まで伴走いたします。</p>
                     </div>
@@ -508,7 +749,7 @@
                     <div class="process-step">
                         <div class="process-step__number">04</div>
                         <div class="process-step__content">
-                            <h3 class="process-step__title">レポート作成 & 提案</h3>
+                            <h3 class="process-step__title">レポート作成 &amp; 提案</h3>
                             <p class="process-step__text">診断結果をまとめたレポートと、具体的な改善施策の優先順位・ロードマップをご提案します。</p>
                             <p class="process-step__duration">期間: 約1週間</p>
                         </div>
@@ -637,27 +878,27 @@
                     <form class="form">
                         <div class="form__group">
                             <label for="company" class="form__label">会社名 <span class="form__required">*</span></label>
-                            <input type="text" id="company" name="company" class="form__input" required>
+                            <input type="text" id="company" name="company" class="form__input" required placeholder="株式会社〇〇">
                         </div>
 
                         <div class="form__group">
                             <label for="name" class="form__label">お名前 <span class="form__required">*</span></label>
-                            <input type="text" id="name" name="name" class="form__input" required>
+                            <input type="text" id="name" name="name" class="form__input" required placeholder="山田 太郎">
                         </div>
 
                         <div class="form__group">
                             <label for="email" class="form__label">メールアドレス <span class="form__required">*</span></label>
-                            <input type="email" id="email" name="email" class="form__input" required>
+                            <input type="email" id="email" name="email" class="form__input" required placeholder="example@company.co.jp">
                         </div>
 
                         <div class="form__group">
                             <label for="phone" class="form__label">電話番号</label>
-                            <input type="tel" id="phone" name="phone" class="form__input">
+                            <input type="tel" id="phone" name="phone" class="form__input" placeholder="03-0000-0000">
                         </div>
 
                         <div class="form__group">
                             <label for="message" class="form__label">お問い合わせ内容 <span class="form__required">*</span></label>
-                            <textarea id="message" name="message" class="form__textarea" rows="5" required></textarea>
+                            <textarea id="message" name="message" class="form__textarea" rows="5" required placeholder="ご質問・ご相談内容をご記入ください"></textarea>
                         </div>
 
                         <div class="form__submit">
@@ -681,7 +922,7 @@
                     AI時代のマーケティングを<br>
                     共にリードするパートナーとして
                 </h2>
-                
+
                 <div class="footer__steps">
                     <div class="footer__step">
                         <div class="footer__step-label">STEP 1</div>
@@ -695,7 +936,7 @@
                     </div>
                     <div class="footer__step">
                         <div class="footer__step-label">STEP 3</div>
-                        <h4 class="footer__step-title">報告会 & 戦略提案</h4>
+                        <h4 class="footer__step-title">報告会 &amp; 戦略提案</h4>
                         <p class="footer__step-text">中長期的なご支援プランをご提案させていただきます。</p>
                     </div>
                 </div>
@@ -711,15 +952,15 @@
                     <h3 class="footer__company-name">LIDDELL</h3>
                     <address class="footer__address">
                         <p>
-                            <span class="footer__address-icon">📍</span>
+                            <span>📍</span>
                             〒107-6212 東京都港区赤坂9-7-1 ミッドタウン・タワー12F
                         </p>
                         <p>
-                            <span class="footer__address-icon">📞</span>
+                            <span>📞</span>
                             03-6432-9806
                         </p>
                         <p>
-                            <span class="footer__address-icon">✉️</span>
+                            <span>✉</span>
                             <a href="mailto:info@liddell.tokyo">info@liddell.tokyo</a>
                         </p>
                     </address>
