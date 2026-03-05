@@ -203,6 +203,45 @@ button {
     opacity: 1;
 }
 
+/* Hamburger Button */
+.header__hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    flex-shrink: 0;
+    z-index: 1001;
+}
+
+.header__hamburger-line {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--color-primary);
+    border-radius: 2px;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.header__hamburger.is-open .header__hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.header__hamburger.is-open .header__hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.header__hamburger.is-open .header__hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 /* ===================================
    Main
    =================================== */
@@ -1456,69 +1495,84 @@ button {
     :root {
         --section-padding: 60px;
     }
-    
+
     .hero__container {
         grid-template-columns: 1fr;
         gap: var(--spacing-xl);
     }
-    
+
+    .hero__visual {
+        display: none;
+    }
+
     .problem-item,
     .problem-item--reverse {
         grid-template-columns: 1fr;
     }
-    
+
     .problem-item--reverse .problem-item__content {
         order: 1;
     }
-    
+
     .problem-item--reverse .problem-item__visual {
         order: 2;
     }
-    
-    .misconceptions__grid {
-        grid-template-columns: 1fr;
+
+    .problem-item__visual {
+        height: 200px;
     }
-    
+
+    .misconceptions__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .eeat-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .ideal-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .beforeafter {
         grid-template-columns: 1fr;
         gap: var(--spacing-md);
     }
-    
+
     .beforeafter__arrow {
-        transform: rotate(90deg);
+        text-align: center;
         font-size: 24px;
+        transform: rotate(90deg);
+        display: block;
     }
-    
+
     .whynow-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .strength-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
-    
+
+    .strength-card__title {
+        padding-right: 0;
+    }
+
     .pricing-cards {
         grid-template-columns: 1fr;
+        max-width: 520px;
     }
-    
+
     .footer__steps {
         grid-template-columns: 1fr;
     }
-    
+
     .footer__info {
         flex-direction: column;
         align-items: flex-start;
         gap: var(--spacing-lg);
     }
-    
+
     .footer__bottom {
         text-align: left;
     }
@@ -1526,43 +1580,290 @@ button {
 
 @media (max-width: 768px) {
     :root {
-        --section-padding: 40px;
-        --font-size-base: 14px;
+        --section-padding: 48px;
+        --font-size-base: 15px;
     }
-    
+
+    /* === Header / Hamburger === */
+    .header {
+        padding: 16px 0;
+    }
+
+    .header__hamburger {
+        display: flex;
+    }
+
     .header__nav {
         display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        z-index: 1000;
     }
-    
+
+    .header__nav.is-open {
+        display: flex;
+    }
+
+    .header__nav-item {
+        font-size: 20px;
+    }
+
+    .header__nav-button {
+        font-size: 16px;
+        padding: 14px 32px;
+    }
+
+    /* === Hero === */
     .hero {
-        padding: 80px 0;
+        padding: 100px 0 60px;
     }
-    
+
     .hero__title {
-        font-size: 32px;
+        font-size: 30px;
     }
-    
+
+    .hero__button {
+        white-space: normal;
+        text-align: center;
+        word-break: keep-all;
+        padding: 16px 24px;
+        font-size: 15px;
+        max-width: 100%;
+        display: flex;
+    }
+
+    /* === Section titles === */
     .section__title {
-        font-size: 28px;
+        font-size: 26px;
     }
-    
+
+    .misconceptions__title,
+    .section__cta-title {
+        font-size: 24px;
+    }
+
+    .problem-item__title {
+        font-size: 22px;
+    }
+
+    /* === Misconceptions grid === */
+    .misconceptions__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .misconception-card__number {
+        position: static;
+        transform: none;
+        width: 44px;
+        height: 44px;
+        font-size: 16px;
+        margin: 0 auto var(--spacing-sm);
+        border: none;
+        background-color: var(--color-bg-light);
+    }
+
+    .misconception-card {
+        padding: var(--spacing-lg);
+        padding-top: var(--spacing-lg);
+    }
+
+    /* === E-E-A-T === */
     .eeat-grid {
         grid-template-columns: 1fr;
     }
-    
-    .comparison__table {
-        font-size: 14px;
+
+    /* === Ideal grid === */
+    .ideal-grid {
+        grid-template-columns: 1fr;
     }
-    
+
+    /* === Comparison table === */
+    .comparison {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .comparison__table {
+        font-size: 13px;
+        min-width: 560px;
+    }
+
+    /* === Why Now === */
+    .whynow-content {
+        grid-template-columns: 1fr;
+    }
+
+    .whynow-stat__number {
+        font-size: 40px;
+    }
+
+    /* === Strength === */
+    .strength-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .strength-card__title {
+        padding-right: 0;
+    }
+
+    .strength-card__number {
+        font-size: 48px;
+    }
+
+    /* === Process === */
     .process-step {
-        grid-template-columns: 60px 1fr;
+        grid-template-columns: 56px 1fr;
         gap: var(--spacing-md);
     }
-    
+
     .process-step__number {
-        width: 60px;
-        height: 60px;
+        width: 56px;
+        height: 56px;
         font-size: 18px;
+    }
+
+    /* === Footer === */
+    .footer__title {
+        font-size: 24px;
+    }
+
+    .footer__button {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        white-space: normal;
+        word-break: keep-all;
+        padding: 18px 20px;
+        font-size: 15px;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --section-padding: 36px;
+        --spacing-xl: 40px;
+        --spacing-xxl: 56px;
+    }
+
+    .header__container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .section__container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .hero {
+        padding: 90px 0 48px;
+    }
+
+    .hero__title {
+        font-size: 26px;
+    }
+
+    .hero__description {
+        font-size: 14px;
+    }
+
+    .section__title {
+        font-size: 22px;
+    }
+
+    .section__description {
+        font-size: 14px;
+    }
+
+    .problem-item__title {
+        font-size: 20px;
+    }
+
+    .problem-item__visual {
+        display: none;
+    }
+
+    .eeat-card {
+        padding: var(--spacing-lg);
+    }
+
+    .whynow-stat__number {
+        font-size: 36px;
+    }
+
+    .whynow-stat__text {
+        font-size: 14px;
+    }
+
+    .whynow-cta {
+        padding: var(--spacing-lg);
+    }
+
+    .whynow-cta__text {
+        font-size: 15px;
+    }
+
+    .process-step {
+        grid-template-columns: 48px 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .process-step__number {
+        width: 48px;
+        height: 48px;
+        font-size: 16px;
+    }
+
+    .process-step__content {
+        padding: var(--spacing-md);
+    }
+
+    .pricing-card__amount {
+        font-size: 44px;
+    }
+
+    .pricing-card__header {
+        padding: var(--spacing-lg);
+    }
+
+    .pricing-card__body,
+    .pricing-card__footer {
+        padding: var(--spacing-lg);
+    }
+
+    .pricing-card__badge {
+        top: 16px;
+        right: -28px;
+    }
+
+    .form__input,
+    .form__textarea {
+        font-size: 16px; /* iOS zoom防止 */
+    }
+
+    .footer__title {
+        font-size: 20px;
+    }
+
+    .footer__step {
+        padding: var(--spacing-sm);
+    }
+
+    .footer__step-title {
+        font-size: 16px;
+    }
+
+    .footer__button {
+        font-size: 14px;
+        padding: 16px 16px;
     }
 }
 
