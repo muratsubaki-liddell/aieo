@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
         
-        if (currentScroll > 100) {
+        if (currentScroll > 0) {
             header.classList.add('header--scrolled');
         } else {
             header.classList.remove('header--scrolled');
