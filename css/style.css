@@ -648,7 +648,33 @@ button {
 }
 
 .section__label-icon {
-    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* SVG Icon utilities */
+.icon-svg {
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.icon-svg--warning {
+    color: #E53E3E;
+}
+
+.misconception-card__icon-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.misconception-card__icon-wrap .icon-svg--main {
+    width: 48px;
+    height: 48px;
+    color: var(--color-accent);
+    opacity: 0.75;
 }
 
 .section__label-small {
