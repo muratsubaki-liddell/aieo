@@ -299,11 +299,35 @@ button {
 .hero {
     background: linear-gradient(140deg, #071228 0%, #0B1B3E 55%, #0F2756 100%);
     padding: 172px 0 100px;
-    min-height: 680px;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    @supports (min-height: 100dvh) {
+        .hero {
+            min-height: 100dvh;
+        }
+    }
+}
+
+.hero__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(11, 27, 62, 0.2) 0%, rgba(7, 18, 40, 0.3) 100%);
+    z-index: 1;
 }
 
 .hero::before {
@@ -579,7 +603,7 @@ button {
 
 /* Hero Visual */
 .hero__visual {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -2111,6 +2135,12 @@ button {
         text-align: center;
         font-size: 28px;
         display: block;
+        font-size: 0;
+    }
+
+    .beforeafter__arrow::before {
+        content: '↓';
+        font-size: 28px;
     }
 
     .whynow-content {
