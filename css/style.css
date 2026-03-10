@@ -468,6 +468,115 @@ button {
     letter-spacing: 0.03em;
 }
 
+/* Hero Main Catch */
+.hero__main-catch {
+    font-size: clamp(44px, 7.5vw, 96px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: white;
+    margin-bottom: var(--spacing-md);
+}
+
+.hero__char {
+    display: inline-block;
+    opacity: 0;
+    white-space: pre;
+    will-change: filter, transform, opacity;
+}
+
+.hero__char--revealed {
+    animation: charReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero__char--dot {
+    color: var(--color-accent-cyan);
+}
+
+@keyframes charReveal {
+    0% {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(24px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+.hero__main-catch--glowing {
+    animation: catchGlowEnter 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes catchGlowEnter {
+    0% {
+        filter: none;
+    }
+    40% {
+        filter: drop-shadow(0 0 12px rgba(47, 127, 255, 0.62)) drop-shadow(0 0 28px rgba(47, 127, 255, 0.22)) brightness(1.02);
+    }
+    100% {
+        filter: drop-shadow(0 0 10px rgba(47, 127, 255, 0.55)) drop-shadow(0 0 26px rgba(47, 127, 255, 0.18));
+    }
+}
+
+/* Hero CTA / Platforms initial hidden state */
+.hero__cta,
+.hero__platforms {
+    opacity: 0;
+}
+
+@keyframes simpleFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.hero__cta--revealed,
+.hero__platforms--revealed {
+    animation: simpleFadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Hero Subcopy */
+.hero__subcopy {
+    font-size: clamp(17px, 2vw, 22px);
+    font-weight: 600;
+    line-height: 1.6;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.9) 0%, var(--color-accent-cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: 0.01em;
+    opacity: 0;
+}
+
+.hero__description {
+    opacity: 0;
+}
+
+@keyframes lineReveal {
+    0% {
+        opacity: 0;
+        filter: blur(6px);
+        transform: translateY(8px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+.hero__subcopy--revealed {
+    animation: lineReveal 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero__description--revealed {
+    animation: lineReveal 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
 /* Hero Visual */
 .hero__visual {
     display: flex;

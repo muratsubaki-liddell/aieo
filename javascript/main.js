@@ -55,6 +55,55 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
+    // === Hero Catch Animation ===
+    const heroCatch = document.getElementById('js-hero-catch');
+    if (heroCatch) {
+        const text = heroCatch.textContent;
+        heroCatch.textContent = '';
+
+        const words = text.trim().split(' ');
+        const spans = words.map((word, i, arr) => {
+            const span = document.createElement('span');
+            span.textContent = word;
+            span.classList.add('hero__char');
+            if (word.endsWith('.')) span.classList.add('hero__char--dot');
+            heroCatch.appendChild(span);
+            if (i < arr.length - 1) heroCatch.appendChild(document.createTextNode(' '));
+            return span;
+        });
+
+        // Group 1: "New Era of", Group 2: "SEO."
+        const group1 = spans.slice(0, -1);
+        const group2 = spans.slice(-1);
+        const group2Start = 500;
+        const animDuration = 900;
+
+        group1.forEach((span, i) => {
+            setTimeout(() => span.classList.add('hero__char--revealed'), i * 80);
+        });
+        group2.forEach(span => {
+            setTimeout(() => span.classList.add('hero__char--revealed'), group2Start);
+        });
+
+        // Glow flash after all words are visible, then reveal subcopy/description
+        const allDoneAt = group2Start + animDuration;
+        const glowDuration = 900;
+        setTimeout(() => heroCatch.classList.add('hero__main-catch--glowing'), allDoneAt);
+
+        const subcopy     = document.getElementById('js-hero-subcopy');
+        const description = document.getElementById('js-hero-description');
+        const cta         = document.getElementById('js-hero-cta');
+        const platforms   = document.getElementById('js-hero-platforms');
+
+        const descRevealAt = allDoneAt + glowDuration + 500;
+        const descDuration = 750;
+
+        if (subcopy)     setTimeout(() => subcopy.classList.add('hero__subcopy--revealed'),         allDoneAt + glowDuration + 100);
+        if (description) setTimeout(() => description.classList.add('hero__description--revealed'), descRevealAt);
+        if (cta)         setTimeout(() => cta.classList.add('hero__cta--revealed'),                 descRevealAt + descDuration + 200);
+        if (platforms)   setTimeout(() => platforms.classList.add('hero__platforms--revealed'),     descRevealAt + descDuration + 200);
+    }
+
     // Header scroll effect
     const header = document.querySelector('.header');
     let lastScroll = 0;
