@@ -1085,13 +1085,16 @@ h3.section__header--h3 {
     overflow: hidden;
 }
 
-.section__cta::before {
-    content: '';
+.section__cta-bg {
     position: absolute;
-    inset: 0;
-    background: url('../seo-aieo-pattern-a-v3-nobg.svg') center center / 160% 160% no-repeat;
+    width: 160%;
+    height: 160%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     opacity: 0.6;
     filter: blur(0.5px);
+    pointer-events: none;
 }
 
 .section__cta::after {
