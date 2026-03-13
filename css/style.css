@@ -1564,7 +1564,7 @@ h3.section__header--h3 {
 .strength-card {
     background-color: white;
     border-radius: var(--radius-lg);
-    padding: var(--spacing-lg);
+    padding: 0;
     position: relative;
     border: 1px solid var(--color-border);
     box-shadow: var(--shadow-sm);
@@ -1575,6 +1575,18 @@ h3.section__header--h3 {
 .strength-card:hover {
     box-shadow: var(--shadow-md);
     transform: translateY(-4px);
+}
+
+.strength-card__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.strength-card__body {
+    padding: var(--spacing-lg);
+    position: relative;
 }
 
 .strength-card__number {
